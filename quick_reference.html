@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quick Reference Note</title>
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --accent: #2563eb;
+            --code-bg: #f1f5f9;
+            --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        h2 { color: #1d4ed8; margin: 2rem 0 0.75rem; font-size: 1.25rem; }
+        p, li { margin-bottom: 0.5rem; }
+        ul { padding-left: 1.5rem; }
+        code {
+            background: var(--code-bg);
+            padding: 0.15em 0.4em;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.9em;
+        }
+        pre {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        pre code { background: none; padding: 0; }
+        .tag { color: #059669; font-weight: 600; }
+        .attr { color: #7c3aed; }
+        footer {
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📘 HTML Quick Reference Note</h1>
+            <p>A concise, printable cheat sheet for modern HTML5 development. Save as <code>html-notes.html</code> and open in any browser.</p>
+        </header>
+
+        <main>
+            <section id="document-structure">
+                <h2>📄 Basic Document Structure</h2>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="Page description for SEO"&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Visible content --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </section>
+
+            <section id="text-elements">
+                <h2>🔤 Text & Inline Elements</h2>
+                <ul>
+                    <li><span class="tag">&lt;h1&gt;–&lt;h6&gt;</span> – Headings (one <code>&lt;h1&gt;</code> per page)</li>
+                    <li><span class="tag">&lt;p&gt;</span> – Paragraph</li>
+                    <li><span class="tag">&lt;strong&gt;</span> / <span class="tag">&lt;em&gt;</span> – Semantic importance / emphasis</li>
+                    <li><span class="tag">&lt;a href="url"&gt;</span> – Hyperlink (use <span class="attr">target="_blank"</span> carefully)</li>
+                    <li><span class="tag">&lt;code&gt;</span> / <span class="tag">&lt;pre&gt;</span> – Inline & block code</li>
+                    <li><span class="tag">&lt;br&gt;</span> / <span class="tag">&lt;hr&gt;</span> – Line break / thematic divider (void elements)</li>
+                </ul>
+            </section>
+
+            <section id="media">
+                <h2>🖼️ Media & Embeds</h2>
+                <pre><code>&lt;!-- Responsive Image --&gt;
+&lt;img src="photo.jpg" alt="Descriptive text" loading="lazy" width="800" height="600"&gt;
+
+&lt;!-- Audio --&gt;
+&lt;audio controls&gt;
+  &lt;source src="podcast.mp3" type="audio/mpeg"&gt;
+  Your browser does not support audio.
+&lt;/audio&gt;
+
+&lt;!-- Video --&gt;
+&lt;video width="640" height="360" controls poster="thumb.jpg"&gt;
+  &lt;source src="clip.mp4" type="video/mp4"&gt;
+&lt;/video&gt;</code></pre>
+            </section>
+
+            <section id="semantic-layout">
+                <h2>🏗️ Semantic Layout Structure</h2>
+                <pre><code>&lt;header&gt;    &lt;!-- Site/page header or section header --&gt;
+&lt;nav&gt;       &lt;!-- Primary navigation --&gt;
+&lt;main&gt;      &lt;!-- Unique core content (use once per page) --&gt;
+  &lt;article&gt; &lt;!-- Independent, distributable content --&gt;
+  &lt;section&gt; &lt;!-- Thematic grouping of content --&gt;
+  &lt;aside&gt;   &lt;!-- Tangentially related content --&gt;
+&lt;/main&gt;
+&lt;footer&gt;    &lt;!-- Page or section footer --&gt;</code></pre>
+            </section>
+
+            <section id="forms">
+                <h2>📝 Accessible Forms</h2>
+                <pre><code>&lt;form action="/api/submit" method="POST"&gt;
+  &lt;label for="name"&gt;Full Name&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" autocomplete="name" required&gt;
+
+  &lt;label for="email"&gt;Email Address&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="you@example.com" required&gt;
+
+  &lt;label for="role"&gt;Role&lt;/label&gt;
+  &lt;select id="role" name="role"&gt;
+    &lt;option value="user"&gt;User&lt;/option&gt;
+    &lt;option value="admin"&gt;Admin&lt;/option&gt;
+  &lt;/select&gt;
+
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <p><strong>Rule:</strong> Every form control must have a programmatically associated <code>&lt;label&gt;</code>.</p>
+            </section>
+
+            <section id="best-practices">
+                <h2>✅ Modern Best Practices</h2>
+                <ul>
+                    <li>Always declare <span class="attr">lang</span> on <code>&lt;html&gt;</code></li>
+                    <li>Prefer semantic elements over <code>&lt;div&gt;</code> / <code>&lt;span&gt;</code></li>
+                    <li>Add <span class="attr">alt</span> to all meaningful images; use <code>alt=""</code> for decorative ones</li>
+                    <li>Use <code>width</code> & <code>height</code> on media to prevent layout shift (CLS)</li>
+                    <li>Validate markup regularly: <a href="https://validator.w3.org/" target="_blank" rel="noopener">W3C Validator</a></li>
+                    <li>Test with keyboard navigation & screen readers</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <a href="https://github.com/AmiARMiess"><p>📘 GitHub <strong>@AmiARMiess</strong></p></a>
+        </footer>
+    </div>
+</body>
+</html>
